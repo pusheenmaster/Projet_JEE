@@ -124,14 +124,14 @@ public class BddController extends MultiActionController {
    
     public ModelAndView save(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-       String param1 = request.getParameter("nom");
+        String param1 = request.getParameter("nom");
         String param2 = request.getParameter("adresse");
         String param3 = request.getParameter("telephone");
         String param4 = request.getParameter("email");
         String param5 = request.getParameter("code_remise");
         String param6 = request.getParameter("CP");
-       new MagasinHelper().insertCustomer(30000, param5.charAt(0), param6);
-       return new ModelAndView("confirm").addObject("confirm","enregistrement effectué");
+        new MagasinHelper().insertCustomer(param1, param2, param3, param4, param5.charAt(0), param6);
+        return new ModelAndView("confirm").addObject("confirm","enregistrement effectué");
    
    }
       

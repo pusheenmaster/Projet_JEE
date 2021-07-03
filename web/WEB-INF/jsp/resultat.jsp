@@ -1,9 +1,3 @@
-<%-- 
-    Document   : resultat
-    Created on : 4 mars 2018, 20:29:48
-    Author     : faycal
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
