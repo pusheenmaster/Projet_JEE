@@ -51,6 +51,56 @@ public class MagasinHelper {
 
         return resultat;
     }
+    
+    public List getManufactures() {
+        List<Customer> resultat = null;
+        Transaction tx = null;
+        try {
+            if (!session.isOpen()) {
+                session = HibernateUtil.getSessionFactory().openSession();
+            }
+            session.flush();
+
+            tx = session.beginTransaction();
+            Query q = session.createQuery("select manufacturerId, name, addressline1, addressline2, city, state, zip, phone, fax, email, rep from Manufacturer");
+            //Query q=session.createQuery("from Customer");
+            resultat = q.list();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return resultat;
+    }
+    
+    public List getProduits() {
+        List<Customer> resultat = null;
+        Transaction tx = null;
+        try {
+            if (!session.isOpen()) {
+                session = HibernateUtil.getSessionFactory().openSession();
+            }
+            session.flush();
+
+            tx = session.beginTransaction();
+            Query q = session.createQuery("select p.productId, m.name, p.productCode, p.purchaseCost, p.quantityOnHand, p.markup, p.available, p.description from Manufacturer m, Product p where p.manufacturerId=m.manufacturerId");
+            //Query q=session.createQuery("from Customer");
+            resultat = q.list();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return resultat;
+    }
 
     public int getLastCustomerID() {
         int ID = 0;
@@ -92,7 +142,57 @@ public class MagasinHelper {
             tx = session.beginTransaction();
             Query q = session.createQuery("select a.customerId, a.name, a.addressline1,a.addressline2,a.zip,b.rate from Customer a, DiscountCode b where a.discountCode=b.discountCode and a.name like :_name");
             //Query q=session.createQuery("from Customer");
-            q.setString("_name", name);
+            q.setString("_name", "%%" + name +  "%%");
+            resultat = q.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return resultat;
+    }
+    
+    public List getManufactures(String name) {
+        List resultat = null;
+        Transaction tx = null;
+        try {
+            if (!session.isOpen()) {
+                session = HibernateUtil.getSessionFactory().openSession();
+            }
+            session.flush();
+
+            tx = session.beginTransaction();
+            Query q = session.createQuery("select manufacturerId, name, addressline1, addressline2, city, state, zip, phone, fax, email, rep from Manufacturer where name like :_name");
+            //Query q=session.createQuery("from Customer");
+            q.setString("_name", "%%" + name +  "%%");
+            resultat = q.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return resultat;
+    }
+    
+    public List getProducts(String name) {
+        List resultat = null;
+        Transaction tx = null;
+        try {
+            if (!session.isOpen()) {
+                session = HibernateUtil.getSessionFactory().openSession();
+            }
+            session.flush();
+
+            tx = session.beginTransaction();
+            Query q = session.createQuery("select productId, productCode, purchaseCost, quantityOnHand, markup, available, description from Product where description like :_name");
+            //Query q=session.createQuery("from Customer");
+            q.setString("_name", "%%" + name +  "%%");
             resultat = q.list();
         } catch (Exception e) {
             e.printStackTrace();
@@ -299,6 +399,56 @@ public class MagasinHelper {
         }
 
         return client;
+    }
+    
+    public Manufacturer getManufact(String id) {
+
+        Manufacturer man = null;
+        Transaction tx = null;
+        try {
+            if (!session.isOpen()) {
+                session = HibernateUtil.getSessionFactory().openSession();
+            }
+            session.flush();
+            tx = session.beginTransaction();
+            Query q = session.createQuery(" from Manufacturer m  where m.manufacturerId =:_name");
+            q.setString("_name", id);
+            man = (Manufacturer) q.list().iterator().next();
+        } catch (Exception e) {
+            System.out.println("erreur toto" + e);
+            e.printStackTrace();
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return man;
+    }
+    
+    public Product getProd(String id) {
+
+        Product prod = null;
+        Transaction tx = null;
+        try {
+            if (!session.isOpen()) {
+                session = HibernateUtil.getSessionFactory().openSession();
+            }
+            session.flush();
+            tx = session.beginTransaction();
+            Query q = session.createQuery(" from Product p  where p.productId =:_name");
+            q.setString("_name", id);
+            prod = (Product) q.list().iterator().next();
+        } catch (Exception e) {
+            System.out.println("erreur toto" + e);
+            e.printStackTrace();
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return prod;
     }
 
     public void deleteCustomer(int _id) {

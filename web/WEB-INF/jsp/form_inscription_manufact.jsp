@@ -18,43 +18,31 @@
             </form>
         </div>  
         <br>
-       
+
         <form name="inscription"  method="POST">
             <p>
                 <label for="nom">Nom</label>
                 <input type="text" name="nom" value="" size="10" id="nom" />
             </p>
             <p>
-            <label for="adresse">Adresse</label>
-            <input type="text" name="adresse" value="" size="10" id="adresse" />
+                <label for="adresse">Adresse</label>
+                <input type="text" name="adresse" value="" size="10" id="adresse" />
             </p>
             <p>
-            <label for="adresse2">Adresse 2</label>
-            <input type="text" name="adresse2" value="" size="10" id="adresse2" />
+                <label for="adresse2">Adresse 2</label>
+                <input type="text" name="adresse2" value="" size="10" id="adresse2" />
             </p>
             <p>
-            <label for="telephone">Téléphone</label>
-            <input type="text" name="telephone" value="" size="10" id="tel" />
+                <label for="Ville">Ville</label>
+                <input type="text" name="Ville" value="" size="10" id="Ville" />
             </p>
             <p>
-            <label for="email">E-mail</label>
-            <input type="text" name="email" value="" size="10" id="email"/>
-            </p>
-            <p><label for="code_remise">Code Remise</label>
-          <select name="code_remise" id="dc">
-               <c:forEach items="${discount}" var="dc">
-                <option>${dc}</option>
-               </c:forEach>
-          </select>
+                <label for="State">State</label>
+                <input type="text" name="State" value="" size="10" id="State"/>
             </p>
             <p>
                 <label for="cp">Code Postal</label>
-            <select name="CP" id="cp">
-                 <c:forEach items="${code}" var="cp">
-                         <option>${cp}</option>
-               </c:forEach>
-            </select>
-            
+                <input type="text" name="cp" value="" size="10" id="cp"/>
             </p>
             <input type="submit" value="Enregistrer" formaction="save.htm" />
         </form>

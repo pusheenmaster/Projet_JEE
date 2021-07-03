@@ -24,16 +24,16 @@
         </div>   
         <br>
         
-        <form name="recherche" action="find.htm" method="POST">
+        <form name="recherche" action="findMan.htm" method="POST">
             <p>
-                <label for="nom">Nom de l'entreprise</label>
+                <label for="nom">Nom de manufacture</label>
                 <input type="text" name="nom"  size="30" id="nom" />
             </p>
             <input type="submit" value="Rechercher par nom"  />
         </form>
-        <form name="rechercheId" action="findById.htm" method="POST">
+        <form name="rechercheId" action="findByIdMan.htm" method="POST">
             <p>
-                <label for="num">ID Client</label>
+                <label for="num">ID Manufacture</label>
                 <input type="text" name="num"  size="30" id="num" />
             </p>
             <input type="submit" value="Rechercher par ID"  />

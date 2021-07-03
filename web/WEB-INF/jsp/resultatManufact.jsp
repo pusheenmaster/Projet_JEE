@@ -34,7 +34,7 @@
                         </TD>
                     </c:forEach>
                     <TD>
-                        <form name="Result" action="detail.htm"  method="POST">
+                        <form name="Result" action="detailMan.htm"  method="POST">
                             <input type=hidden name="num"  value="${liste[row.index][0]}"/>
                             <input type=submit  value="Détail"  />
                         </form>

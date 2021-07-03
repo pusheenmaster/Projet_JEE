@@ -61,6 +61,20 @@ public class BddController extends MultiActionController {
         return new ModelAndView("resultat").addObject("liste", new MagasinHelper().getClients());
 
     }
+    
+    public ModelAndView listMan(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+
+        return new ModelAndView("resultatManufact").addObject("liste", new MagasinHelper().getManufactures());
+
+    }
+    
+    public ModelAndView listProd(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+
+        return new ModelAndView("resultatProduit").addObject("liste", new MagasinHelper().getProduits());
+
+    }
 
     public ModelAndView add(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
@@ -70,6 +84,24 @@ public class BddController extends MultiActionController {
         mv.addObject("user", session.getAttribute("user"));
         mv.addObject("discount", new MagasinHelper().getDiscountCode());
         mv.addObject("code", new MagasinHelper().getZipCode());
+        return mv;
+    }
+    
+    public ModelAndView addMan(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+
+        ModelAndView mv = new ModelAndView("form_inscription_manufact");
+
+        mv.addObject("user", session.getAttribute("user"));
+        return mv;
+    }
+    
+    public ModelAndView addProd(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+
+        ModelAndView mv = new ModelAndView("form_inscription_product");
+
+        mv.addObject("user", session.getAttribute("user"));
         return mv;
     }
 
@@ -82,6 +114,26 @@ public class BddController extends MultiActionController {
         mv.addObject("code", new MagasinHelper().getDiscountCode());
 
         mv.addObject("client", new MagasinHelper().getClient(request.getParameter("num")));
+        return mv;
+    }
+    
+    public ModelAndView detailMan(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+
+        ModelAndView mv = new ModelAndView("detailMan");
+
+        mv.addObject("user", session.getAttribute("user"));
+        mv.addObject("client", new MagasinHelper().getManufact(request.getParameter("num")));
+        return mv;
+    }
+    
+    public ModelAndView detailProd(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+
+        ModelAndView mv = new ModelAndView("detailProd");
+
+        mv.addObject("user", session.getAttribute("user"));
+        mv.addObject("client", new MagasinHelper().getProd(request.getParameter("num")));
         return mv;
     }
 
@@ -97,6 +149,44 @@ public class BddController extends MultiActionController {
         } else {
             mv = new ModelAndView("resultat");
             mv.addObject("liste", requeteur.getClients(request.getParameter("nom")));
+
+        }
+
+        mv.addObject("user", session.getAttribute("user"));
+        return mv;
+    }
+    
+    public ModelAndView findMan(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+
+        ModelAndView mv;
+        MagasinHelper requeteur = new MagasinHelper();
+        if (requeteur.getManufactures(request.getParameter("nom")).isEmpty() || request.getParameter("nom").equals("%")) {
+            mv = new ModelAndView("error");
+            mv.addObject("erreur", "0 enregistrements");
+
+        } else {
+            mv = new ModelAndView("resultatManufact");
+            mv.addObject("liste", requeteur.getManufactures(request.getParameter("nom")));
+
+        }
+
+        mv.addObject("user", session.getAttribute("user"));
+        return mv;
+    }
+    
+    public ModelAndView findProd(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+
+        ModelAndView mv;
+        MagasinHelper requeteur = new MagasinHelper();
+        if (requeteur.getProducts(request.getParameter("nom")).isEmpty() || request.getParameter("nom").equals("%")) {
+            mv = new ModelAndView("error");
+            mv.addObject("erreur", "0 enregistrements");
+
+        } else {
+            mv = new ModelAndView("resultat");
+            mv.addObject("liste", requeteur.getProducts(request.getParameter("nom")));
 
         }
 
@@ -127,6 +217,16 @@ public class BddController extends MultiActionController {
     public ModelAndView formfind(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
         return new ModelAndView("recherche");
+    }
+    
+    public ModelAndView formfindMan(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+        return new ModelAndView("rechercheMan");
+    }
+    
+    public ModelAndView formfindProd(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+        return new ModelAndView("rechercheProd");
     }
 
     public ModelAndView achats(HttpServletRequest request,

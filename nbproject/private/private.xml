@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/IUT/JEE/Bdd_Spring_HI/nbproject/build-impl.xml</file>
-            <file>file:/F:/IUT/JEE/Bdd_Spring_HI/src/java/DAO/Customer.hbm.xml</file>
-            <file>file:/F:/IUT/JEE/Bdd_Spring_HI/web/WEB-INF/jsp/form_inscription.jsp</file>
-            <file>file:/F:/IUT/JEE/Bdd_Spring_HI/web/WEB-INF/jsp/detail.jsp</file>
             <file>file:/F:/IUT/JEE/Bdd_Spring_HI/web/WEB-INF/jsp/menu.jsp</file>
+            <file>file:/F:/IUT/JEE/Bdd_Spring_HI/src/java/DAO/Manufacturer.hbm.xml</file>
             <file>file:/F:/IUT/JEE/Bdd_Spring_HI/src/java/DAO/MagasinHelper.java</file>
             <file>file:/F:/IUT/JEE/Bdd_Spring_HI/src/java/controller/BddController.java</file>
-            <file>file:/F:/IUT/JEE/Bdd_Spring_HI/src/java/DAO/HibernateUtil.java</file>
+            <file>file:/F:/IUT/JEE/Bdd_Spring_HI/src/java/DAO/Product.hbm.xml</file>
         </group>
     </open-files>
 </project-private>
