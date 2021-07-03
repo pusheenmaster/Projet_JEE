@@ -25,6 +25,10 @@
             <input type="text" name="adresse" value="" size="10" id="adresse" />
             </p>
             <p>
+            <label for="adresse2">Adresse 2</label>
+            <input type="text" name="adresse2" value="" size="10" id="adresse2" />
+            </p>
+            <p>
             <label for="telephone">Téléphone</label>
             <input type="text" name="telephone" value="" size="10" id="tel" />
             </p>

@@ -126,11 +126,12 @@ public class BddController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
         String param1 = request.getParameter("nom");
         String param2 = request.getParameter("adresse");
+        String param21 = request.getParameter("adresse2");
         String param3 = request.getParameter("telephone");
         String param4 = request.getParameter("email");
         String param5 = request.getParameter("code_remise");
         String param6 = request.getParameter("CP");
-        new MagasinHelper().insertCustomer(param1, param2, param3, param4, param5.charAt(0), param6);
+        new MagasinHelper().insertCustomer(param1, param2, param21, param3, param4, param5.charAt(0), param6);
         return new ModelAndView("confirm").addObject("confirm","Insert OK !");
    
    }
@@ -148,11 +149,12 @@ public class BddController extends MultiActionController {
         int id = Integer.valueOf(idString);
         String param1 = request.getParameter("nom");
         String param2 = request.getParameter("adresse");
+        String param21 = request.getParameter("adresse2");
         String param3 = request.getParameter("telephone");
         String param4 = request.getParameter("email");
         String param5 = request.getParameter("code_remise");
         String param6 = request.getParameter("zip");
-        new MagasinHelper().updateCustomer(id, param1, param2, param3, param4, param5.charAt(0), param6);
+        new MagasinHelper().updateCustomer(id, param1, param2, param21, param3, param4, param5.charAt(0), param6);
         return new ModelAndView("confirm").addObject("confirm","Update OK !");
    } 
 }

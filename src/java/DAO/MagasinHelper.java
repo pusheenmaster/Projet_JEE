@@ -165,7 +165,7 @@ List resultat=null;
         }
         return resultat;
 }
-public void insertCustomer  (String _nom, String _adresse, String _tel, String _email, char _discountCode, String _zip) {
+public void insertCustomer  (String _nom, String _adresse1, String _adresse2, String _tel, String _email, char _discountCode, String _zip) {
     int id = getLastCustomerID() + 1;
 
     Transaction tx=null;
@@ -175,7 +175,7 @@ public void insertCustomer  (String _nom, String _adresse, String _tel, String _
             
              tx=session.beginTransaction();
              
-             Customer a =new Customer(id, _nom, _adresse, _tel, _email, _discountCode,_zip);
+             Customer a =new Customer(id, _nom, _adresse1, _adresse2, _tel, _email, _discountCode,_zip);
              session.save(a);
              tx.commit();
         }
@@ -190,7 +190,7 @@ public void insertCustomer  (String _nom, String _adresse, String _tel, String _
     
 }
 
-public void updateCustomer  (int _customerId, String _name, String _adress, String _phone, String _email, char _discountCode, String _zip) {
+public void updateCustomer  (int _customerId, String _name, String _adress1,String _adress2, String _phone, String _email, char _discountCode, String _zip) {
     
     Transaction tx=null;
         try{
@@ -198,7 +198,7 @@ public void updateCustomer  (int _customerId, String _name, String _adress, Stri
             session.flush();
             
              tx=session.beginTransaction();
-             Customer a =new Customer(_customerId, _name, _adress, _phone, _email, _discountCode,_zip);
+             Customer a =new Customer(_customerId, _name, _adress1, _adress2, _phone, _email, _discountCode,_zip);
              session.update(a);
              tx.commit();
         }

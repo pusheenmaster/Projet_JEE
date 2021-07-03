@@ -59,10 +59,11 @@ public class Customer  implements java.io.Serializable {
        this.creditLimit = creditLimit;
     }
       
-      public Customer(int id, String name,String addressline1, String phone, String email, char discountCode, String zip) {
+      public Customer(int id, String name,String addressline1,String addressline2, String phone, String email, char discountCode, String zip) {
        this.discountCode = discountCode;
        this.name = name;
        this.addressline1 = addressline1;
+       this.addressline2 = addressline2;
        this.phone = phone;
        this.email = email;
        this.zip = zip;

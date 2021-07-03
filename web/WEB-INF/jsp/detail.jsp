@@ -23,6 +23,10 @@
             <input type="text" name="adresse" value="${client.addressline1}" size="30" id="adresse" />
             </p>
             <p>
+            <label for="adresse2">Adresse 2</label>
+            <input type="text" name="adresse2" value="${client.addressline2}" size="30" id="adresse2" />
+            </p>
+            <p>
             <label for="telephone">Téléphone</label>
             <input type="text" name="telephone" value="${client.phone}" size="30" id="tel" />
             </p>
