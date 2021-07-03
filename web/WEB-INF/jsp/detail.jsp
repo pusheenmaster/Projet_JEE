@@ -12,7 +12,7 @@
         <form name="detail" method="POST">
            <p>
                 <label for="numero">Numero</label>
-                <input type="text" name="numero" value="${client.customerId}" size="30" id="numero" />
+                <input type="text" name="numero" value="${client.customerId}" size="30" id="numero" readonly/>
             </p>
             <p>
            <label for="nom">Nom</label>
@@ -37,6 +37,10 @@
                       <option <c:if test="${dc==client.discountCode}"> selected </c:if>>${dc}</option>
                </c:forEach>
             </select>
+            </p>
+            <p>
+            <label for="zip">Code Postal</label>
+            <input type="text" name="zip" value="${client.zip}" size="30" id="zip"/>
             </p>
             
             <input type="submit" value="Modifier" formaction="update.htm" />
