@@ -45,6 +45,7 @@ public class BddController extends MultiActionController {
         return new ModelAndView("menu").addObject("user",utilisateur); 
         
     }
+    
     public ModelAndView  logout(HttpServletRequest request,
 			HttpServletResponse response){
         

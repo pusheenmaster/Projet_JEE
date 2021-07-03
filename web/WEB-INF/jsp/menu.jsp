@@ -18,10 +18,10 @@
         <form name="form"  method="POST">
         
             <input type="submit" formaction="list.htm"  value="Lister les clients"  />
-            <input type="submit" formaction="add.htm" value="Ajouter"  />
+            <input type="submit" formaction="add.htm" value="Ajouter un client"  />
+            <input type="submit" formaction="formfind.htm" value="Rechercher un client"  />
             <input type="submit" formaction="logout.htm" value="Se déconnecter"  />
-            <input type="submit" formaction="formfind.htm" value="Rechercher"  />
-        
+
         </form>
     </body>
 </html>

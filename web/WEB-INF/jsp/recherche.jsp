@@ -19,6 +19,10 @@
             </p>
             <input type="submit" value="rechercher"  />
         </form>
-        
+        <p>
+        <form name="Return" action="menu.htm"  method="POST">
+            <input type=submit  value="Retour au Menu Principal"  />
+        </form>
+        </p>
     </body>
 </html>

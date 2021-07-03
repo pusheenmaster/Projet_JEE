@@ -54,5 +54,11 @@
             </p>
             <input type="submit" value="Enregistrer" formaction="save.htm" />
         </form>
+        
+        <p>
+        <form name="Return" action="menu.htm"  method="POST">
+            <input type=submit  value="Retour au Menu Principal"  />
+        </form>
+        </p>
     </body>
 </html>
