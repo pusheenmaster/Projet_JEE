@@ -23,8 +23,8 @@
             <td><input type="password" name="j_password"  ></td>
             </tr>
             <tr>
-            <td><input type="submit" value="Entrer" ></td>
-            <td><input type="reset" value="Annuler"></td>
+            <td><input type="submit" value="Login" ></td>
+            <td><input type="reset" value="Reset"></td>
             </tr>
             </table>
         </form>

@@ -12,6 +12,19 @@
         <title>Erreur</title>
     </head>
     <body>
+        <div style="display:flex;">
+            User : ${user.login}
+
+            <form name="form"  method="POST" style="margin-left: 20px">
+                <input type="submit" formaction="logout.htm" value="Se déconnecter"  />
+            </form>
+        </div>   
+        <br>
         <h1>${erreur} </h1>
     </body>
+    <p>
+    <form name="Return" action="menu.htm"  method="POST">
+        <input type=submit  value="Retour au Menu Principal"  />
+    </form>
+</p>
 </html>

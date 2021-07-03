@@ -12,6 +12,14 @@
         <title>Confirmation</title>
     </head>
     <body>
+        <div style="display:flex;">
+            User : ${user.login}
+
+            <form name="form"  method="POST" style="margin-left: 20px">
+                <input type="submit" formaction="logout.htm" value="Se déconnecter"  />
+            </form>
+        </div>   
+        <br>
         <h1>${confirm} </h1>
         <form action="list.htm"  method="POST">
         <input type="submit" value="Afficher tous les enregistrements"  />

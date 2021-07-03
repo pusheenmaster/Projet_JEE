@@ -7,7 +7,14 @@
         <title>Detail</title>
     </head>
     <body>
-        
+        <div style="display:flex;">
+            User : ${user.login}
+
+            <form name="form"  method="POST" style="margin-left: 20px">
+                <input type="submit" formaction="logout.htm" value="Se déconnecter"  />
+            </form>
+        </div>   
+        <br>
         
         <form name="detail" method="POST">
            <p>
