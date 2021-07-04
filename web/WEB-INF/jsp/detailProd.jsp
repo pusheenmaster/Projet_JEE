@@ -18,39 +18,43 @@
             </form>
         </div>   
         <br>
-        
+
         <form name="detailMan" method="POST">
-           <p>
+            <p>
                 <label for="numero">Product Id</label>
                 <input type="text" name="numero" value="${client.productId}" size="30" id="numero" readonly/>
             </p>
             <p>
-           <label for="nom">Product Code</label>
-                <input type="text" name="nom" value="${client.productCode}" size="30" id="nom" />
+                <label for="manId">Manufacturer ID</label>
+                <input type="text" name="manId" value="${client.manufacturerId}" size="30" id="manId" readonly/>
             </p>
             <p>
-            <label for="adresse">Purchase Cost</label>
-            <input type="text" name="adresse" value="${client.purchaseCost}" size="30" id="adresse" />
+                <label for="product_code">Product Code</label>
+                <input type="text" name="product_code" value="${client.productCode}" size="30" id="product_code" readonly/>
             </p>
             <p>
-            <label for="adresse2">Qty on Hand</label>
-            <input type="text" name="adresse2" value="${client.quantityOnHand}" size="30" id="adresse2" />
+                <label for="cost">Purchase Cost</label>
+                <input type="text" name="cost" value="${client.purchaseCost}" size="30" id="cost" />
             </p>
             <p>
-            <label for="telephone">Markup</label>
-            <input type="text" name="telephone" value="${client.markup}" size="30" id="tel" />
+                <label for="quantity">Qty on Hand</label>
+                <input type="text" name="quantity" value="${client.quantityOnHand}" size="30" id="quantity" />
             </p>
             <p>
-            <label for="email">Available</label>
-            <input type="text" name="email" value="${client.available}" size="30" id="email"/>
+                <label for="markup">Markup</label>
+                <input type="text" name="markup" value="${client.markup}" size="30" id="markup" />
             </p>
             <p>
-            <label for="zip">Description</label>
-            <input type="text" name="zip" value="${client.description}" size="30" id="zip"/>
+                <label for="available">Available</label>
+                <input type="text" name="available" value="${client.available}" size="30" id="available"/>
             </p>
-            
-            <input type="submit" value="Modifier" formaction="update.htm" />
-            <input type="submit" value="Supprimer" formaction="delete.htm" />
+            <p>
+                <label for="description">Description</label>
+                <input type="text" name="description" value="${client.description}" size="30" id="description"/>
+            </p>
+
+            <input type="submit" value="Modifier" formaction="updateProd.htm" />
+            <input type="submit" value="Supprimer" formaction="deleteProd.htm" />
         </form>
     </body>
 </html>

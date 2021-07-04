@@ -474,7 +474,55 @@ public class MagasinHelper {
                 session.close();
             }
         }
+    }
+    
+    public void updateManufacturer(int id, String _nom, String _adresse1, String _adresse2, String _ville, String _state, String _cp, String _phone, String _fax, String _mail, String _rep) {
 
+        Transaction tx = null;
+        try {
+            if (!session.isOpen()) {
+                session = HibernateUtil.getSessionFactory().openSession();
+            }
+            session.flush();
+
+            tx = session.beginTransaction();
+            Manufacturer a = new Manufacturer(id, _nom, _adresse1, _adresse2, _ville, _state, _cp, _phone, _fax, _mail, _rep);
+            session.update(a);
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+            throw e;
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+    
+    public void updateProduct(int id, String manIdString, String code, String cost, String quantity, String markup, String available, String description) {
+
+        Transaction tx = null;
+        try {
+            if (!session.isOpen()) {
+                session = HibernateUtil.getSessionFactory().openSession();
+            }
+            session.flush();
+
+            tx = session.beginTransaction();
+            int manId = Integer.valueOf(manIdString);
+            Product a = new Product(id, manId, code, new BigDecimal(cost), Integer.valueOf(quantity), new BigDecimal(markup), available, description);
+            session.update(a);
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+            throw e;
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
     }
 
     public Customer getClient(int id) {
@@ -587,7 +635,7 @@ public class MagasinHelper {
             session.flush();
 
             tx = session.beginTransaction();
-            Query q = session.createQuery(" from Customer a  where a.customerId =:_id");
+            Query q = session.createQuery(" from Customer a where a.customerId =:_id");
             q.setInteger("_id", _id);
             session.delete((Customer) q.list().iterator().next());
             tx.commit();
@@ -600,7 +648,56 @@ public class MagasinHelper {
                 session.close();
             }
         }
+    }
+    
+    public void deleteManufacturer(int _id) {
 
+        Transaction tx = null;
+        try {
+            if (!session.isOpen()) {
+                session = HibernateUtil.getSessionFactory().openSession();
+            }
+            session.flush();
+
+            tx = session.beginTransaction();
+            Query q = session.createQuery(" from Manufacturer a where a.manufacturerId =:_id");
+            q.setInteger("_id", _id);
+            session.delete((Manufacturer) q.list().iterator().next());
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+            throw e;
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+    
+    public void deleteProduct(int _id) {
+
+        Transaction tx = null;
+        try {
+            if (!session.isOpen()) {
+                session = HibernateUtil.getSessionFactory().openSession();
+            }
+            session.flush();
+
+            tx = session.beginTransaction();
+            Query q = session.createQuery(" from Product a where a.productId =:_id");
+            q.setInteger("_id", _id);
+            session.delete((Product) q.list().iterator().next());
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+            throw e;
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
     }
 
     public List<PurchaseOrder> getAchats(int id) {

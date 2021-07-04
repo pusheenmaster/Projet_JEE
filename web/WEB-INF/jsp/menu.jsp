@@ -44,7 +44,7 @@
         <form name="formProduit"  method="POST">  
             <input type="submit" formaction="listProd.htm"  value="Lister les produits"  />
             <input type="submit" formaction="addProd.htm" value="Ajouter un produit"  />
-            <input type="submit" formaction="formfindPro    d.htm" value="Rechercher un produit"  />
+            <input type="submit" formaction="formfindProd.htm" value="Rechercher un produit"  />
         </form>
     </body>
 </html>
