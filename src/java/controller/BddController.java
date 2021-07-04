@@ -100,7 +100,8 @@ public class BddController extends MultiActionController {
             HttpServletResponse response) throws Exception {
 
         ModelAndView mv = new ModelAndView("form_inscription_product");
-
+        mv.addObject("code", new MagasinHelper().getProductCode());
+        mv.addObject("manID", new MagasinHelper().getManId());
         mv.addObject("user", session.getAttribute("user"));
         return mv;
     }
@@ -252,7 +253,37 @@ public class BddController extends MultiActionController {
         String param6 = request.getParameter("CP");
         new MagasinHelper().insertCustomer(param1, param2, param21, param3, param4, param5.charAt(0), param6);
         return new ModelAndView("confirm").addObject("confirm", "Insert OK !");
-
+    }
+    
+    public ModelAndView saveManufact(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+        String nom = request.getParameter("nom");
+        String adresse = request.getParameter("adresse");
+        String adresse2 = request.getParameter("adresse2");
+        String ville = request.getParameter("ville");
+        String state = request.getParameter("state");
+        if (state.length() > 2) state = state.substring(0,2);
+        String cp = request.getParameter("cp");
+        String phone = request.getParameter("phone");
+        String fax = request.getParameter("fax");
+        String mail = request.getParameter("mail");
+        String rep = request.getParameter("rep");
+        new MagasinHelper().insertManufacturer(nom, adresse, adresse2, ville, state, cp, phone, fax, mail, rep);
+        return new ModelAndView("confirmManufact").addObject("confirm", "Insert OK !");
+    }
+    
+    public ModelAndView saveProduct(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+        String manId = request.getParameter("manId");
+        String code = request.getParameter("product_code");
+        //if (code.length() > 2) code = code.substring(0,2);
+        String cost = request.getParameter("cost");
+        String quantity = request.getParameter("quantity");
+        String markup = request.getParameter("markup");
+        String available = request.getParameter("available");
+        String description = request.getParameter("description");
+        new MagasinHelper().insertProduct(manId, code, cost, quantity, markup, available, description);
+        return new ModelAndView("confirmProd").addObject("confirm", "Insert OK !");
     }
 
     public ModelAndView delete(HttpServletRequest request,

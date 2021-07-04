@@ -20,31 +20,41 @@
         <br>
 
         <form name="inscription"  method="POST">
-            <p>
-                <label for="Code">Product Code</label>
-                <input type="text" name="Code" value="" size="10" id="Code" />
+            <p><label for="manId">Manufacturer ID</label>
+          <select name="manId" id="dc">
+               <c:forEach items="${manID}" var="dc">
+                <option>${dc}</option>
+               </c:forEach>
+          </select>
+            </p>
+            <p><label for="product_code">Product Code</label>
+          <select name="product_code" id="dc">
+               <c:forEach items="${code}" var="dc">
+                <option>${dc}</option>
+               </c:forEach>
+          </select>
             </p>
             <p>
-                <label for="Cost">Product Cost</label>
-                <input type="text" name="Cost" value="" size="10" id="Cost" />
+                <label for="cost">Product Cost</label>
+                <input type="text" name="cost" value="" size="10" id="cost" />
             </p>
             <p>
-                <label for="Quantity">Quantity on Hand</label>
-                <input type="text" name="Quantity" value="" size="10" id="Quantity" />
+                <label for="quantity">Quantity on Hand</label>
+                <input type="text" name="quantity" value="" size="10" id="quantity" />
             </p>
             <p>
-                <label for="Markup">Markup</label>
-                <input type="text" name="Markup" value="" size="10" id="Markup"/>
+                <label for="markup">Markup</label>
+                <input type="text" name="markup" value="" size="10" id="markup"/>
             </p>
             <p>
-                <label for="Available">Available</label>
-                <input type="text" name="Available" value="" size="10" id="Available"/>
+                <label for="available">Available</label>
+                <input type="text" name="available" value="" size="10" id="available"/>
             </p>
             <p>
-                <label for="Description">Description</label>
-                <input type="text" name="Description" value="" size="10" id="Description"/>
+                <label for="description">Description</label>
+                <input type="text" name="description" value="" size="10" id="description"/>
             </p>
-            <input type="submit" value="Enregistrer" formaction="save.htm" />
+            <input type="submit" value="Enregistrer" formaction="saveProduct.htm" />
         </form>
     </body>
 </html>

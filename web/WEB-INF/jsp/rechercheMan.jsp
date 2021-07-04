@@ -36,7 +36,7 @@
                 <label for="num">ID Manufacture</label>
                 <input type="text" name="num"  size="30" id="num" />
             </p>
-            <input type="submit" value="Rechercher par ID"  />
+            <input type="submit" value="Rechercher par ID (pas encore implémenté)"  />
         </form>
         <p>
     </p>
